@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         buttonId.setOnClickListener {
-            textView.text = editText.text
+            textView.text = "Welcome " + editText.text + "!!"
         }
     }
 }
