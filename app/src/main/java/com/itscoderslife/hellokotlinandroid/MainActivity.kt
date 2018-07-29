@@ -2,6 +2,7 @@ package com.itscoderslife.hellokotlinandroid
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -13,5 +14,7 @@ class MainActivity : AppCompatActivity() {
         buttonId.setOnClickListener {
             textView.text = "Welcome " + editText.text + "!!"
         }
+
+        Toast.makeText(this, "Hello user!!", Toast.LENGTH_SHORT).show()
     }
 }
