@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
             textView.text = "Welcome " + editText.text + "!!"
         }
 
-        Toast.makeText(this, "Hello user!!", Toast.LENGTH_SHORT).show()
+        // `this` here and `applicationContext` are same
+        Toast.makeText(applicationContext, "Hello user!!", Toast.LENGTH_SHORT).show()
     }
 }
