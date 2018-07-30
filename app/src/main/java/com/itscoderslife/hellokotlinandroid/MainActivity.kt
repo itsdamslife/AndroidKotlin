@@ -12,7 +12,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         buttonId.setOnClickListener {
-            textView.text = "Welcome " + editText.text + "!!"
+            if(editText.text.isEmpty()) {
+                Toast.makeText(applicationContext, "Enter your name first…", Toast.LENGTH_SHORT).show()
+            } else {
+                textView.text = "Welcome " + editText.text + "!!"
+            }
         }
 
         // `this` here and `applicationContext` are same
