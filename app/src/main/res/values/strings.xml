@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">HelloKotlinAndroid</string>
+    <string name="weight_question">What\'s your weight on Mars?</string>
+    <string name="weight_placeholder">Enter your weight on earth here...</string>
+    <string name="calculate">Calculate</string>
 </resources>
