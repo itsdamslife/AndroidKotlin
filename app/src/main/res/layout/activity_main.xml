@@ -10,10 +10,9 @@
         android:id="@+id/resultview"
         android:layout_width="361dp"
         android:layout_height="34dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="28dp"
         android:textAlignment="center"
         android:textSize="24sp"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/calculatebutton" />
@@ -24,7 +23,7 @@
         android:layout_height="48dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="28dp"
         android:background="@android:color/holo_red_light"
         android:fontFamily="@font/aclonica"
         android:foregroundTint="@android:color/white"
@@ -43,7 +42,7 @@
         android:layout_height="45dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="28dp"
         android:ems="10"
         android:fontFamily="@font/aclonica"
         android:hint="@string/weight_placeholder"
@@ -53,7 +52,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.483"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titletext" />
+        app:layout_constraintTop_toBottomOf="@+id/cbvenus" />
 
     <TextView
         android:id="@+id/titletext"
@@ -71,5 +70,41 @@
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/cbjupiter"
+        android:layout_width="80dp"
+        android:layout_height="28dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="12dp"
+        android:buttonTint="@android:color/holo_red_light"
+        android:text="Jupiter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titletext" />
+
+    <CheckBox
+        android:id="@+id/cbvenus"
+        android:layout_width="80dp"
+        android:layout_height="28dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:buttonTint="@android:color/holo_red_light"
+        android:text="Venus"
+        app:layout_constraintEnd_toStartOf="@+id/cbjupiter"
+        app:layout_constraintHorizontal_bias="0.725"
+        app:layout_constraintStart_toEndOf="@+id/cbmars"
+        app:layout_constraintTop_toBottomOf="@+id/titletext" />
+
+    <CheckBox
+        android:id="@+id/cbmars"
+        android:layout_width="80dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:buttonTint="@android:color/holo_red_light"
+        android:text="Mars"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titletext" />
 
 </android.support.constraint.ConstraintLayout>
