@@ -34,26 +34,35 @@ class MainActivity() : AppCompatActivity(), OnClickListener {
         cbmars.setOnClickListener(this)
         cbvenus.setOnClickListener(this)
         cbjupiter.setOnClickListener(this)
-
     }
 
     private fun calculateWeight(weight: Double, cb: CheckBox?) {
         var result: Double = weight
+        var planet = "Earth"
         val isChecked: Boolean = cb?.isChecked ?: false
 
         when(cb?.id) {
             R.id.cbmars -> if (isChecked) {
                 result = weight * marsGravity
+                planet = "Mars"
+                cbvenus.isChecked = false
+                cbjupiter.isChecked = false
             }
             R.id.cbvenus -> if (isChecked) {
                 result = weight * venusGravity
+                planet = "Venus"
+                cbmars.isChecked = false
+                cbjupiter.isChecked = false
             }
             R.id.cbjupiter -> if (isChecked) {
                 result = weight * jupiterGravity
+                planet = "Jupiter"
+                cbmars.isChecked = false
+                cbvenus.isChecked = false
             }
         }
 
-        resultview.text = "Your weight is ".toString() + result.toString()
+        resultview.text = "Your weight is ".toString() + result.toString() + " on " + planet;
     }
 
     override fun onClick(view: View) {
