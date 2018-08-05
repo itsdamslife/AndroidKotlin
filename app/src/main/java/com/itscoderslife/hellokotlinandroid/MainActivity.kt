@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.graphics.PorterDuff
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
@@ -28,6 +29,13 @@ class MainActivity : AppCompatActivity() {
             val index = Random().nextInt(colorsArray.count())
             dogImgView.setColorFilter(colorsArray[index], PorterDuff.Mode.OVERLAY)
         }
+
+        var tapMeBtn = findViewById<Button>(R.id.tapMe)
+        tapMeBtn.setOnClickListener {
+            val index = Random().nextInt(colorsArray.count())
+            mainView.setBackgroundColor(colorsArray[index])
+        }
+
 
     }
 }
