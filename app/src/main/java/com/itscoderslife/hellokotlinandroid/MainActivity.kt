@@ -13,21 +13,5 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        var catImageView = findViewById<ImageView>(R.id.catwoman)
-        catImageView.setColorFilter(Color.DKGRAY)
-
-        catImageView.setOnClickListener {
-            catImageView.clearColorFilter()
-            catImageView.setBackgroundColor(Color.DKGRAY)
-        }
-
-        val colorsArray = arrayOf(Color.BLACK, Color.DKGRAY, Color.MAGENTA, Color.LTGRAY, Color.TRANSPARENT)
-        var dogImgView = findViewById<ImageView>(R.id.doggie)
-        dogImgView.setOnClickListener {
-            val index = Random().nextInt(colorsArray.count())
-            dogImgView.setColorFilter(colorsArray[index], PorterDuff.Mode.OVERLAY)
-        }
-
     }
 }
