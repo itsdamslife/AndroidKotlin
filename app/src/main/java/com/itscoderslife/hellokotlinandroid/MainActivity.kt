@@ -1,8 +1,12 @@
 package com.itscoderslife.hellokotlinandroid
 
+import android.graphics.Color
+import android.graphics.PorterDuff
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -10,8 +14,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        buttonId.setOnClickListener {
-            textView.text = "Welcome " + editText.text + "!!"
+        var catImageView = findViewById<ImageView>(R.id.catwoman)
+        catImageView.setColorFilter(Color.DKGRAY)
+
+        catImageView.setOnClickListener {
+            catImageView.clearColorFilter()
+            catImageView.setBackgroundColor(Color.DKGRAY)
         }
+
+        val colorsArray = arrayOf(Color.BLACK, Color.DKGRAY, Color.MAGENTA, Color.LTGRAY, Color.TRANSPARENT)
+        var dogImgView = findViewById<ImageView>(R.id.doggie)
+        dogImgView.setOnClickListener {
+            val index = Random().nextInt(colorsArray.count())
+            dogImgView.setColorFilter(colorsArray[index], PorterDuff.Mode.OVERLAY)
+        }
+
     }
 }
