@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="395dp"
         android:layout_height="587dp"
         android:layout_marginBottom="8dp"
@@ -19,16 +19,60 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/button"
+        <TextView
+            android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8sp"
+            android:text="@string/textview"
+            android:textAlignment="center" />
 
-        <Switch
-            android:id="@+id/switch1"
-            android:layout_width="match_parent"
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Switch" />
-    </LinearLayout>
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/textView"
+            android:layout_marginTop="8sp"
+            android:ems="10"
+            android:hint="@string/username"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/username"
+            android:layout_marginTop="4sp"
+            android:ems="10"
+            android:hint="@string/password"
+            android:inputType="textPassword" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/password"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/enter"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/enter" />
+
+            <Button
+                android:id="@+id/login"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/login" />
+        </LinearLayout>
+
+    </RelativeLayout>
 </android.support.constraint.ConstraintLayout>
