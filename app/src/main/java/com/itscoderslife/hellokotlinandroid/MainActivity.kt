@@ -1,5 +1,7 @@
 package com.itscoderslife.hellokotlinandroid
 
+import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.PorterDuff
@@ -14,6 +16,8 @@ import java.util.*
 import kotlin.collections.HashMap
 
 class MainActivity : AppCompatActivity() {
+
+    val REQUEST_CODE = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,37 +37,50 @@ class MainActivity : AppCompatActivity() {
         login.setOnClickListener {
             var intent = Intent(this, HomePageActivity::class.java)
             intent.putExtra("user", uname.text)
-            startActivity(intent)
+            startActivityForResult(intent, REQUEST_CODE)
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        Toast.makeText(applicationContext,"On Destroy",Toast.LENGTH_SHORT).show()
-    }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
 
-    override fun onStart() {
-        super.onStart()
-        Toast.makeText(applicationContext,"On start",Toast.LENGTH_SHORT).show()
-    }
+        if(requestCode == REQUEST_CODE && resultCode == Activity.RESULT_OK) {
 
-    override fun onStop() {
-        super.onStop()
-        Toast.makeText(applicationContext,"On stop",Toast.LENGTH_SHORT).show()
-    }
+            val returnData = data!!.extras.get("return value").toString()
+            textView.setTextKeepState("Hope you had a nice trip to second activity!!")
+            Toast.makeText(applicationContext,returnData,Toast.LENGTH_LONG).show()
+        }
 
-    override fun onPause() {
-        super.onPause()
-        Toast.makeText(applicationContext,"On pause",Toast.LENGTH_SHORT).show()
-    }
 
-    override fun onResume() {
-        super.onResume()
-        Toast.makeText(applicationContext,"On resume",Toast.LENGTH_SHORT).show()
     }
-
-    override fun onPostResume() {
-        super.onPostResume()
-        Toast.makeText(applicationContext,"On post resume",Toast.LENGTH_SHORT).show()
-    }
+//
+//    override fun onDestroy() {
+//        super.onDestroy()
+//        Toast.makeText(applicationContext,"On Destroy",Toast.LENGTH_SHORT).show()
+//    }
+//
+//    override fun onStart() {
+//        super.onStart()
+//        Toast.makeText(applicationContext,"On start",Toast.LENGTH_SHORT).show()
+//    }
+//
+//    override fun onStop() {
+//        super.onStop()
+//        Toast.makeText(applicationContext,"On stop",Toast.LENGTH_SHORT).show()
+//    }
+//
+//    override fun onPause() {
+//        super.onPause()
+//        Toast.makeText(applicationContext,"On pause",Toast.LENGTH_SHORT).show()
+//    }
+//
+//    override fun onResume() {
+//        super.onResume()
+//        Toast.makeText(applicationContext,"On resume",Toast.LENGTH_SHORT).show()
+//    }
+//
+//    override fun onPostResume() {
+//        super.onPostResume()
+//        Toast.makeText(applicationContext,"On post resume",Toast.LENGTH_SHORT).show()
+//    }
 }
