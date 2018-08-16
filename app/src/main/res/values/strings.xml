@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Layouts</string>
+    <string name="app_name">Animal Bios</string>
     <string name="enter">Clear</string>
     <string name="login">Login</string>
     <string name="textview">Lorem ipsum text goes here...</string>
