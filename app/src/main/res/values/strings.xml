@@ -1,10 +1,6 @@
 <resources>
-    <string name="app_name">Animal Bios</string>
-    <string name="enter">Clear</string>
-    <string name="login">Login</string>
+    <string name="app_name">List views</string>
     <string name="textview">Lorem ipsum text goes here...</string>
-    <string name="username">Enter username...</string>
-    <string name="password">Enter password...</string>
     <string name="welcome2msg">Welcome </string>
     <string name="goback">Go Back</string>
 </resources>
