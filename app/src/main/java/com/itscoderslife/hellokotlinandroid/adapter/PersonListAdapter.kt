@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import com.itscoderslife.hellokotlinandroid.R
 import com.itscoderslife.hellokotlinandroid.model.Person
 
@@ -26,7 +27,7 @@ class PersonListAdapter(private val list: ArrayList<Person>,
     }
 
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bindItem(person: Person) {
             var name = itemView.findViewById<TextView>(R.id.title)
@@ -34,6 +35,14 @@ class PersonListAdapter(private val list: ArrayList<Person>,
 
             name.text = person.name
             desc.text = person.age.toString()
+
+            itemView.setOnClickListener {
+                Toast.makeText(context, name.text, Toast.LENGTH_LONG).show()
+
+                // You can start an activity here
+                // context.startActivity()
+
+            }
         }
     }
 
