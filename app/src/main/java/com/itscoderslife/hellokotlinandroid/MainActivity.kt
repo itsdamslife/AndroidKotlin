@@ -1,39 +1,44 @@
 package com.itscoderslife.hellokotlinandroid
 
+import android.content.SharedPreferences
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
-import com.itscoderslife.hellokotlinandroid.adapter.PersonListAdapter
-import com.itscoderslife.hellokotlinandroid.model.Person
+import android.text.TextUtils
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private var personList: ArrayList<Person>? = null
-    private var personListAdapter: PersonListAdapter? = null
-    private var layoutManager: RecyclerView.LayoutManager?  = null
+    private val prefName = "MY_PREFS"
+    var myPref: SharedPreferences? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        saveId.setOnClickListener {
+            myPref = getSharedPreferences(prefName, 0)
+            var editor: SharedPreferences.Editor = myPref!!.edit()
 
-        personList = ArrayList<Person>()
-        layoutManager = LinearLayoutManager(this)
-        personListAdapter = PersonListAdapter(personList!!, this)
-
-        personlist.layoutManager = layoutManager
-        personlist.adapter = personListAdapter
-
-        for (i in 0..2200) {
-            val person = Person()
-            person.name = "Coder " + i
-            person.age = i + 22
-            personList!!.add(person)
+            if (!TextUtils.isEmpty(enterId.text.toString())) {
+                var msg = enterId.text.toString()
+                editor.putString("name", msg)
+                editor.commit()
+                textViewId.text = "Welcome $msg"
+            } else {
+                Toast.makeText(this, "Enter a valid name", Toast.LENGTH_SHORT).show()
+            }
         }
 
-        personListAdapter?.notifyDataSetChanged()
+        // fetch data back on launch
+        var backUp: SharedPreferences = getSharedPreferences(prefName, 0)
+        if (backUp.contains("name")) {
+            var msg = backUp.getString("name", "")
+            textViewId.text = "Welcome back $msg"
+        } else {
+            Toast.makeText(this, "Welcome", Toast.LENGTH_LONG).show()
+        }
+
     }
 
 }
