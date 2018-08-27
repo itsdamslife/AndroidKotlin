@@ -20,8 +20,8 @@ class MainActivity : AppCompatActivity() {
             myPref = getSharedPreferences(prefName, 0)
             var editor: SharedPreferences.Editor = myPref!!.edit()
 
-            if (!TextUtils.isEmpty(enterId.text.toString())) {
-                var msg = enterId.text.toString()
+            if (!TextUtils.isEmpty(assignedbyid.text.toString())) {
+                var msg = assignedbyid.text.toString()
                 editor.putString("name", msg)
                 editor.commit()
                 textViewId.text = "Welcome $msg"

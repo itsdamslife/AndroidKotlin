@@ -3,4 +3,7 @@
     <string name="textview">Lorem ipsum text goes here...</string>
     <string name="welcome2msg">Welcome </string>
     <string name="goback">Go Back</string>
+    <string name="enter_a_chore">Enter a chore</string>
+    <string name="assigned_to">assigned to...</string>
+    <string name="assigned_by">assigned by...</string>
 </resources>
