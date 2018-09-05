@@ -25,12 +25,12 @@ class ChoreDataHandler(context: Context):
 
     override fun onUpgrade(db: SQLiteDatabase?, v1: Int, v2: Int) {
         db?.execSQL("DROP TABLE " + TABLE_NAME)
-       // onCreate(db)
+        onCreate(db)
     }
 
     /* CRUD ops */
 
-    fun createChore(chore: Chore) {
+    fun createChore(chore: Chore) : Long {
         val db: SQLiteDatabase = writableDatabase
 
         var values: ContentValues = ContentValues()
@@ -45,23 +45,33 @@ class ChoreDataHandler(context: Context):
         Log.d("DATA INSERTED", "SUCCESS $insert")
 
         db.close()
+
+        return insert
     }
 
     fun updateChore(chore: Chore) {
 
     }
 
-    fun deleteChore(chore: Chore) {
-
+    fun deleteChore(ID: Int) : Int {
+        val db: SQLiteDatabase = writableDatabase
+        val delete = db?.delete(TABLE_NAME, CHORE_ID + "=?", arrayOf(ID.toString()))
+        Log.d("DATA DELETED", "SUCCESS $delete")
+        db.close()
+        return delete
     }
 
-    fun fetchChore(choreID: Int) : Chore {
+    fun fetchChore(choreID: Int) : Chore? {
         val db: SQLiteDatabase = writableDatabase
 
         var cursor = db?.query(TABLE_NAME,
                 arrayOf(CHORE_ID, CHORE_NAME, CHORE_ASSIGNED_TO, CHORE_ASSIGNED_BY, CHORE_ASSIGNED_TIME),
-                CHORE_ID + "=?", arrayOf(choreID.toString()),
+                null,
                 null, null, null, null)
+
+        if(cursor.count > 0) {
+            return null
+        }
 
         if(cursor != null)
             cursor.moveToFirst()
@@ -75,6 +85,8 @@ class ChoreDataHandler(context: Context):
 
         val dateFormat: java.text.DateFormat = DateFormat.getDateInstance()
         chore.assignedTime = cursor.getLong(cursor.getColumnIndex(CHORE_ASSIGNED_TIME))
+
+        db.close()
 
         return chore
     }
