@@ -2,6 +2,7 @@ package com.itscoderslife.hellokotlinandroid.data
 
 import android.content.ContentValues
 import android.content.Context
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
@@ -49,8 +50,17 @@ class ChoreDataHandler(context: Context):
         return insert
     }
 
-    fun updateChore(chore: Chore) {
+    fun updateChore(chore: Chore) : Int {
+        val db: SQLiteDatabase = writableDatabase
 
+        var values: ContentValues = ContentValues()
+        values.put(CHORE_NAME, chore.choreTitle)
+        values.put(CHORE_ASSIGNED_TO, chore.assignedTo)
+        values.put(CHORE_ASSIGNED_BY, chore.assignedBy)
+        values.put(CHORE_ASSIGNED_TIME, System.currentTimeMillis())
+
+        val isUpdated = db.update(TABLE_NAME, values, CHORE_ID + "=?", arrayOf(chore.choreId.toString()))
+        return isUpdated
     }
 
     fun deleteChore(ID: Int) : Int {
@@ -89,5 +99,14 @@ class ChoreDataHandler(context: Context):
         db.close()
 
         return chore
+    }
+
+    fun getChoresCount() : Int {
+        val db = readableDatabase
+
+        var query = "SELECT * from " + TABLE_NAME
+        var cursor: Cursor = db.rawQuery(query, null)
+
+        return cursor.count
     }
 }
