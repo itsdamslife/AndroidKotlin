@@ -1,5 +1,6 @@
 package com.itscoderslife.hellokotlinandroid
 
+import android.app.ProgressDialog
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
@@ -11,6 +12,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
 
     var choreDBHandler: ChoreDataHandler? = null
+//    var progressDialog: ProgressDialog? = null
 
     fun saveToDatabase(chore: Chore) : Long {
         return choreDBHandler!!.createChore(chore)
@@ -21,9 +23,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         choreDBHandler = ChoreDataHandler(this)
+//        progressDialog = ProgressDialog(this)
 
         saveId.setOnClickListener {
-
+//            ProgressDialog.show(this, "Chore App", "Saving...", false, true) {
+//                print("Progress Dialog cancelled!!")
+//            }
             if ( !TextUtils.isEmpty(choretitleid.text.toString()) &&
                     !TextUtils.isEmpty(assignedtoid.text.toString()) &&
                     !TextUtils.isEmpty(assignedbyid.text.toString())) {

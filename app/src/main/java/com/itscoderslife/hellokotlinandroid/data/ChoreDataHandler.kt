@@ -60,6 +60,8 @@ class ChoreDataHandler(context: Context):
         values.put(CHORE_ASSIGNED_TIME, System.currentTimeMillis())
 
         val isUpdated = db.update(TABLE_NAME, values, CHORE_ID + "=?", arrayOf(chore.choreId.toString()))
+        db.close()
+
         return isUpdated
     }
 
@@ -106,6 +108,8 @@ class ChoreDataHandler(context: Context):
 
         var query = "SELECT * from " + TABLE_NAME
         var cursor: Cursor = db.rawQuery(query, null)
+
+        db.close()
 
         return cursor.count
     }
