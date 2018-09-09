@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
 
     var choreDBHandler: ChoreDataHandler? = null
-//    var progressDialog: ProgressDialog? = null
+    var progressDialog: ProgressDialog? = null
 
     fun saveToDatabase(chore: Chore) : Long {
         return choreDBHandler!!.createChore(chore)
@@ -23,12 +23,16 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         choreDBHandler = ChoreDataHandler(this)
-//        progressDialog = ProgressDialog(this)
+        progressDialog = ProgressDialog(this)
 
         saveId.setOnClickListener {
 //            ProgressDialog.show(this, "Chore App", "Saving...", false, true) {
 //                print("Progress Dialog cancelled!!")
 //            }
+
+            progressDialog!!.setMessage("Saving...")
+            progressDialog!!.show()
+
             if ( !TextUtils.isEmpty(choretitleid.text.toString()) &&
                     !TextUtils.isEmpty(assignedtoid.text.toString()) &&
                     !TextUtils.isEmpty(assignedbyid.text.toString())) {
@@ -43,6 +47,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(applicationContext, "Enter all details, pls…", Toast.LENGTH_LONG).show()
             }
+            progressDialog!!.cancel()
         }
 
 
