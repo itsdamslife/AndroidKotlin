@@ -1,6 +1,8 @@
 package com.itscoderslife.hellokotlinandroid.model
 
+import java.sql.Date
 import java.sql.Time
+import java.text.DateFormat
 
 class Chore() {
     var choreId: Int? = null
@@ -14,6 +16,20 @@ class Chore() {
         this.assignedTo = assignedTo
         this.assignedBy = assignedBy
         this.assignedTime = assignedTime
-        this.choreId = id // "TO BE GENERATED - " // TODO: Generate unique Chore Id in this constructor
+        this.choreId = id
     }
+
+    fun showHumanDate(timeAssigned: Long): String {
+
+        var dateFormat: java.text.DateFormat = DateFormat.getDateInstance()
+        var formattedDate: String = dateFormat.format(Date(timeAssigned).time)
+
+        return "Created: ${formattedDate}"
+
+    }
+
+    override fun toString(): String {
+        return "Chore(choreName=$choreTitle, assignedBy=$assignedBy, assignedTo=$assignedTo, timeAssigned=$assignedTime, id=$choreId)"
+    }
+
 }

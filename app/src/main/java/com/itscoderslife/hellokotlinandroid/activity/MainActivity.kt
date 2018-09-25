@@ -1,11 +1,16 @@
-package com.itscoderslife.hellokotlinandroid
+package com.itscoderslife.hellokotlinandroid.activity
 
 import android.app.ProgressDialog
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.text.TextUtils
 import android.widget.Toast
+import com.itscoderslife.hellokotlinandroid.R
 import com.itscoderslife.hellokotlinandroid.data.ChoreDataHandler
+import com.itscoderslife.hellokotlinandroid.data.ChoreListAdapter
 import com.itscoderslife.hellokotlinandroid.model.Chore
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -44,6 +49,9 @@ class MainActivity : AppCompatActivity() {
 
                 val result = saveToDatabase(chore)
                 Toast.makeText(applicationContext, "Chore saved successfully with Id: $result", Toast.LENGTH_LONG).show()
+
+                val intent = Intent(this,ChoresListActivity::class.java)
+                startActivity(intent)
             } else {
                 Toast.makeText(applicationContext, "Enter all details, pls…", Toast.LENGTH_LONG).show()
             }

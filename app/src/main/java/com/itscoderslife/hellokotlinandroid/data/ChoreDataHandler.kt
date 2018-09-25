@@ -113,4 +113,35 @@ class ChoreDataHandler(context: Context):
 
         return cursor.count
     }
+
+    fun readChores(): ArrayList<Chore> {
+
+
+        var db: SQLiteDatabase = readableDatabase
+        var list: ArrayList<Chore> = ArrayList()
+
+        //Select all chores from table
+        var selectAll = "SELECT * FROM " + TABLE_NAME
+
+        var cursor: Cursor = db.rawQuery(selectAll, null)
+
+        //loop through our chores
+        if (cursor.moveToFirst()) {
+            do {
+                var chore = Chore()
+
+                chore.choreId = cursor.getInt(cursor.getColumnIndex(CHORE_ID))
+                chore.choreTitle = cursor.getString(cursor.getColumnIndex(CHORE_NAME))
+                chore.assignedTo = cursor.getString(cursor.getColumnIndex(CHORE_ASSIGNED_TO))
+                chore.assignedTime = cursor.getLong(cursor.getColumnIndex(CHORE_ASSIGNED_TIME))
+                chore.assignedBy = cursor.getString(cursor.getColumnIndex(CHORE_ASSIGNED_BY))
+
+                list.add(chore)
+
+            } while (cursor.moveToNext())
+        }
+
+        return list
+    }
+
 }
