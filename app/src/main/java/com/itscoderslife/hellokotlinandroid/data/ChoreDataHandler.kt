@@ -108,10 +108,10 @@ class ChoreDataHandler(context: Context):
 
         var query = "SELECT * from " + TABLE_NAME
         var cursor: Cursor = db.rawQuery(query, null)
-
+        var count = cursor.count
         db.close()
 
-        return cursor.count
+        return count
     }
 
     fun readChores(): ArrayList<Chore> {

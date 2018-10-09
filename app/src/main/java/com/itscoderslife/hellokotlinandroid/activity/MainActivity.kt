@@ -4,13 +4,10 @@ import android.app.ProgressDialog
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.text.TextUtils
 import android.widget.Toast
 import com.itscoderslife.hellokotlinandroid.R
 import com.itscoderslife.hellokotlinandroid.data.ChoreDataHandler
-import com.itscoderslife.hellokotlinandroid.data.ChoreListAdapter
 import com.itscoderslife.hellokotlinandroid.model.Chore
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -29,6 +26,8 @@ class MainActivity : AppCompatActivity() {
 
         choreDBHandler = ChoreDataHandler(this)
         progressDialog = ProgressDialog(this)
+
+        checkDB()
 
         saveId.setOnClickListener {
 //            ProgressDialog.show(this, "Chore App", "Saving...", false, true) {
@@ -57,31 +56,11 @@ class MainActivity : AppCompatActivity() {
             }
             progressDialog!!.cancel()
         }
+    }
 
-
-        /*
-
-
-
-        val choreId = choreDBHandler!!.createChore(chore)
-
-        // fetch chore
-        var chores: Chore? = choreDBHandler!!.fetchChore(1)
-        if(chores != null) {
-            Log.d("Chore $choreId  fetched Item: ", chores!!.choreTitle)
+    fun checkDB() {
+        if(choreDBHandler!!.getChoresCount() > 0) {
+            startActivity(Intent(this, ChoresListActivity::class.java))
         }
-
-        // delete a chore
-        val del = choreDBHandler!!.deleteChore(choreId.toInt())
-        Log.d("chore deleted","Chore $choreId deleted: " + del.toString())
-
-        var ch: Chore? = choreDBHandler!!.fetchChore(1)
-        if (ch == null) {
-            Log.d("chore not found", "Chore with Id: $choreId not found")
-        } else {
-            Log.d("Chore fetched", "Chore $choreId fetched: " + ch?.choreTitle)
-        }
-
-        */
     }
 }
