@@ -8,4 +8,5 @@
     <string name="assigned_by">assigned by...</string>
     <string name="title_activity_chore_list">ChoreListActivity</string>
     <string name="chore_list">Chores</string>
+    <string name="add_chore_menu_title">Add Menu</string>
 </resources>

@@ -4,6 +4,10 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import com.itscoderslife.hellokotlinandroid.R
 import com.itscoderslife.hellokotlinandroid.data.ChoreDataHandler
 import com.itscoderslife.hellokotlinandroid.data.ChoreListAdapter
@@ -34,4 +38,17 @@ class ChoresListActivity : AppCompatActivity() {
 
         choresListId.adapter!!.notifyDataSetChanged()
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.top_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        if (item!!.itemId == R.id.add_chore_menu_btn) {
+            Log.d("menu item clicked", "Add menu item clicked")
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
 }
