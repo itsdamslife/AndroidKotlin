@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mainview"
+    android:id="@+id/popup_add_chore"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#ffffff"
-    tools:context=".activity.MainActivity">
+    android:layout_height="match_parent">
 
 
     <EditText
-        android:id="@+id/assignedbyid"
+        android:id="@+id/passignedbyid"
         android:layout_width="243dp"
         android:layout_height="44dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="28dp"
         android:ems="10"
         android:hint="@string/assigned_by"
         android:inputType="textPersonName"
@@ -23,15 +22,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/assignedtoid" />
+        app:layout_constraintTop_toBottomOf="@+id/passignedtoid" />
 
     <EditText
-        android:id="@+id/assignedtoid"
+        android:id="@+id/passignedtoid"
         android:layout_width="243dp"
         android:layout_height="44dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="28dp"
         android:ems="10"
         android:hint="@string/assigned_to"
         android:inputType="textPersonName"
@@ -39,15 +38,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/choretitleid" />
+        app:layout_constraintTop_toBottomOf="@+id/pchoretitleid" />
 
     <EditText
-        android:id="@+id/choretitleid"
+        android:id="@+id/pchoretitleid"
         android:layout_width="243dp"
         android:layout_height="44dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="24dp"
         android:ems="10"
         android:hint="@string/enter_a_chore"
         android:inputType="textPersonName"
@@ -58,16 +57,19 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/saveId"
+        android:id="@+id/psaveId"
         android:layout_width="256dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="28dp"
         android:background="@android:color/holo_blue_light"
         android:text="Save"
         android:textColor="@color/cardview_light_background"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/assignedbyid" />
+        app:layout_constraintTop_toBottomOf="@+id/passignedbyid" />
+
 </android.support.constraint.ConstraintLayout>

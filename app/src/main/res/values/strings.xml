@@ -1,6 +1,12 @@
 <resources>
-    <string name="app_name">Shared Prefs</string>
+    <string name="app_name">Chores</string>
     <string name="textview">Lorem ipsum text goes here...</string>
     <string name="welcome2msg">Welcome </string>
     <string name="goback">Go Back</string>
+    <string name="enter_a_chore">Enter a chore</string>
+    <string name="assigned_to">assigned to...</string>
+    <string name="assigned_by">assigned by...</string>
+    <string name="title_activity_chore_list">ChoreListActivity</string>
+    <string name="chore_list">Chores</string>
+    <string name="add_chore_menu_title">Add Menu</string>
 </resources>
