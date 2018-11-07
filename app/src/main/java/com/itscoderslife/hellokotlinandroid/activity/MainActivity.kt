@@ -6,6 +6,7 @@ import android.util.Log
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.Response
+import com.android.volley.VolleyError
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
@@ -37,12 +38,26 @@ class MainActivity : AppCompatActivity() {
                     response: JSONArray ->
                     try {
                         Log.d("JSON Response ====> ", response.toString())
+
+                        for (i in 0 until response.length()) {
+                            val todo = response.getJSONObject(i)
+                            val todoTitle = todo.getString("title")
+                            val user = todo.getString("userId")
+                            Log.d("Todo title # ${user} : ", todoTitle)
+                        }
+
                     } catch (e: JSONException) {
                         e.printStackTrace()
                     }
                 },
                 Response.ErrorListener {
-                    Log.d("JSON Request error", "Request error : ${it.localizedMessage}")
+                    error: VolleyError? ->
+                    try {
+                        Log.d("Volley Request error", error.toString())
+                    } catch (e: JSONException) {
+                        e.printStackTrace()
+                    }
+
                 })
         requestQueue?.add(jsonArrayReq)
     }
