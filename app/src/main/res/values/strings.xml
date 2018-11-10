@@ -1,12 +1,10 @@
 <resources>
-    <string name="app_name">Volley Request</string>
-    <string name="textview">Lorem ipsum text goes here...</string>
+    <string name="app_name">Recipe Finder</string>
+    <string name="textview">Find Awesome recipes here...</string>
     <string name="welcome2msg">Welcome </string>
     <string name="goback">Go Back</string>
-    <string name="enter_a_chore">Enter a chore</string>
-    <string name="assigned_to">assigned to...</string>
-    <string name="assigned_by">assigned by...</string>
-    <string name="title_activity_chore_list">ChoreListActivity</string>
-    <string name="chore_list">Chores</string>
-    <string name="add_chore_menu_title">Add Menu</string>
+    <string name="searchhint">What would you like to search?</string>
+    <string name="searchIngredientsHint">Ingredients: e.g: tomato, sugar</string>
+    <string name="searchitemhint">Search term: e.g: meatloaf</string>
+    <string name="search"><![CDATA[Search >]]></string>
 </resources>
