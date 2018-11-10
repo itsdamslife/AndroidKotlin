@@ -1,4 +1,4 @@
-package com.itscoderslife.hellokotlinandroid.activity
+package com.itscoderslife.hellokotlinandroid.activity.activities
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle

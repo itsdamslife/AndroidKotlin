@@ -24,7 +24,7 @@
                 app:srcCompat="@mipmap/ic_launcher_round" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/recipeTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/imageView"
@@ -36,18 +36,18 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/ingredientsView"
                 android:layout_width="match_parent"
                 android:layout_height="33dp"
-                android:layout_below="@+id/textView2"
+                android:layout_below="@+id/recipeTitle"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginStart="0dp"
-                android:layout_marginTop="14dp"
-                android:layout_marginBottom="42dp"
                 android:layout_marginLeft="12dp"
+                android:layout_marginTop="14dp"
                 android:layout_marginRight="12dp"
+                android:layout_marginBottom="42dp"
                 android:text="@string/ingredients"
                 android:textSize="16sp" />
 
