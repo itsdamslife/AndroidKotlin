@@ -7,4 +7,8 @@
     <string name="searchIngredientsHint">Ingredients: e.g: tomato, sugar</string>
     <string name="searchitemhint">Search term: e.g: meatloaf</string>
     <string name="search"><![CDATA[Search >]]></string>
+    <string name="recipeIcon">Recipe Icon</string>
+    <string name="reccipeTitle">Recipe Title</string>
+    <string name="ingredients">Recipe Ingredients</string>
+    <string name="OpenInBrowser">" Open"</string>
 </resources>
