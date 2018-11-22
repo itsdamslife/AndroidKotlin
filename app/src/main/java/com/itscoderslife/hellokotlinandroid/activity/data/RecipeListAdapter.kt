@@ -15,9 +15,9 @@ import com.squareup.picasso.Picasso
 import org.w3c.dom.Text
 
 class RecipeListAdapter(private val list: ArrayList<Recipe>, private val context: Context): RecyclerView.Adapter<RecipeListAdapter.ViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): ViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.list_row, parent, false)
-
         return ViewHolder(view)
     }
 
@@ -35,7 +35,7 @@ class RecipeListAdapter(private val list: ArrayList<Recipe>, private val context
         var titleView: TextView? = itemView.findViewById<TextView>(R.id.recipeTitle)
         var ingredients: TextView? = itemView.findViewById<TextView>(R.id.ingredientsView)
         var iconView: ImageView? = itemView.findViewById<ImageView>(R.id.imageView)
-        var button: Button? = itemView.findViewById<Button>(R.id.button)
+        var button: Button? = itemView.findViewById<Button>(R.id.OpenInBrowser)
 
         fun bindView(recipe: Recipe) {
             titleView?.text = recipe.recipeTitle
