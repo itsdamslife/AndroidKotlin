@@ -53,6 +53,8 @@ class RecipeListAdapter(private val list: ArrayList<Recipe>, private val context
             } else {
                 Picasso.get()
                         .load(R.mipmap.ic_launcher)
+                        .placeholder(android.R.drawable.ic_menu_report_image)
+                        .error(android.R.drawable.ic_menu_report_image)
                         .into(iconView)
             }
         }
