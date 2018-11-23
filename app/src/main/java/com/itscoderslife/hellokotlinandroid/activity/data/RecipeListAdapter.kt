@@ -1,6 +1,7 @@
 package com.itscoderslife.hellokotlinandroid.activity.data
 
 import android.content.Context
+import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.text.TextUtils
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import com.itscoderslife.hellokotlinandroid.R
+import com.itscoderslife.hellokotlinandroid.activity.activities.ShowLinkActivity
 import com.itscoderslife.hellokotlinandroid.activity.model.Recipe
 import com.squareup.picasso.Picasso
 import org.w3c.dom.Text
@@ -41,7 +43,9 @@ class RecipeListAdapter(private val list: ArrayList<Recipe>, private val context
             titleView?.text = recipe.recipeTitle
             ingredients?.text = recipe.recipeIngredients
             button?.setOnClickListener {
-
+                var intent = Intent(context, ShowLinkActivity::class.java)
+                intent.putExtra("link", recipe.recipeLink.toString())
+                context.startActivity(intent)
             }
 
             if(!TextUtils.isEmpty(recipe.iconPath)) {
