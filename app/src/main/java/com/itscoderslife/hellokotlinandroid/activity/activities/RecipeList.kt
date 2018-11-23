@@ -42,8 +42,11 @@ class RecipeList : AppCompatActivity() {
 
         volleyRequest = Volley.newRequestQueue(this)
 
-        // Remove the Hardcoded stuff
-        val urlstr = "http://www.recipepuppy.com/api/?i=onions,garlic&q=omelet&p=3"
+        val searchStr = this.intent.getStringExtra("searchterm")
+        val searchIng = this.intent.getStringExtra("ingredients")
+
+        val urlstr = "http://www.recipepuppy.com/api/?i=$searchIng&q=$searchStr&p=3"
+        Log.d("Recipe query string := ", urlstr)
         getRecipes(urlstr)
     }
 

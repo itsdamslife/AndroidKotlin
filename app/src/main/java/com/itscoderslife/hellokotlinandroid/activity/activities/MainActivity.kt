@@ -23,7 +23,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         searchButton?.setOnClickListener {
-            startActivity(Intent(this, RecipeList::class.java))
+
+            var intent = Intent(this, RecipeList::class.java)
+            intent.putExtra("ingredients", ingredientsID.text.toString())
+            intent.putExtra("searchterm", searchTermID.text.toString())
+
+            startActivity(intent)
         }
 
 
