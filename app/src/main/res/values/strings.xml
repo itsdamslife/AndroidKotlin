@@ -1,14 +1,5 @@
 <resources>
-    <string name="app_name">Recipe Finder</string>
-    <string name="textview">Find Awesome recipes here...</string>
-    <string name="welcome2msg">Welcome </string>
-    <string name="goback">Go Back</string>
-    <string name="searchhint">What would you like to search?</string>
-    <string name="searchIngredientsHint">Ingredients: e.g: tomato, sugar</string>
-    <string name="searchitemhint">Search term: e.g: meatloaf</string>
-    <string name="search"><![CDATA[Search >]]></string>
-    <string name="recipeIcon">Recipe Icon</string>
-    <string name="reccipeTitle">Recipe Title</string>
-    <string name="ingredients">Recipe Ingredients</string>
-    <string name="OpenInBrowser">" Open"</string>
+    <string name="app_name">My Chat</string>
+    <string name="Welcome">Welcome to My Chat</string>
+    <string name="textview">My Android chat app using Firebase...</string>
 </resources>
