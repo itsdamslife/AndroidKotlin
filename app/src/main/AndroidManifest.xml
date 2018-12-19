@@ -18,8 +18,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.activities.LoginActivity" />
+        <activity android:name=".activity.activities.LoginActivity"></activity>
         <activity android:name=".activity.activities.CreateAccountActivity"></activity>
+        <activity android:name=".activity.activities.DashboardActivity"></activity>
     </application>
 
 </manifest>

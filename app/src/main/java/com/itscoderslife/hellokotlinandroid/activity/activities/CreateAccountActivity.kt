@@ -1,5 +1,6 @@
 package com.itscoderslife.hellokotlinandroid.activity.activities
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -59,6 +60,12 @@ class CreateAccountActivity : AppCompatActivity() {
                             task: Task<Void> ->
                                 if(task.isSuccessful) {
                                     Toast.makeText(this, "User \"$displayName\" is successfully created!", Toast.LENGTH_LONG).show()
+
+                                    val intent = Intent(this, DashboardActivity::class.java)
+                                    intent.putExtra("user", userID)
+                                    startActivity(intent)
+                                    finish()
+
                                 } else {
                                     Log.d("User creation failed : ", task.result.toString())
                                     Log.d("User creation failed : ", task.exception.toString())
