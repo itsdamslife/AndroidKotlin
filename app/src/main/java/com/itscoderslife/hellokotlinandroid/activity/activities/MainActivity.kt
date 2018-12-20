@@ -18,13 +18,20 @@ class MainActivity : AppCompatActivity() {
 
         createAccountButton.setOnClickListener {
             val intent = Intent(this, CreateAccountActivity::class.java)
-            startActivity(intent)
+            startActivityForResult(intent, 10)
         }
 
         loginButton.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
+            startActivityForResult(intent, 10)
         }
 
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == 10) {
+            this.finish()
+        }
     }
 }
