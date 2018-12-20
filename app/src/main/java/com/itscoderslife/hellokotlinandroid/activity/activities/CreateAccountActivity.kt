@@ -62,7 +62,7 @@ class CreateAccountActivity : AppCompatActivity() {
                                     Toast.makeText(this, "User \"$displayName\" is successfully created!", Toast.LENGTH_LONG).show()
 
                                     val intent = Intent(this, DashboardActivity::class.java)
-                                    intent.putExtra("user", userID)
+                                    intent.putExtra("user", displayName)
                                     startActivity(intent)
                                     finish()
 
