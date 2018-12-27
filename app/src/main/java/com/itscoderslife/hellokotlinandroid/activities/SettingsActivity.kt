@@ -53,13 +53,13 @@ class SettingsActivity : AppCompatActivity() {
                 displayNameId.text = displayName!!.toString()
                 statusId.text = status!!.toString()
 
-                Log.d("Image :", "$image")
+                Log.d("whatsup Image :", "$image")
                 if(!image!!.equals("default")) {
-                    Log.d("Image :", "Not default")
+                    Log.d("whatsup Image :", "Not default")
                     Picasso.get().load(image.toString()).into(profile_image)
 //                    profile_image!!.setImageURI(Uri.parse(image.toString()))
                 } else {
-                    Log.d("Image :", "is default")
+                    Log.d("whatsup Image :", "is default")
                 }
             }
 
@@ -136,7 +136,7 @@ class SettingsActivity : AppCompatActivity() {
                                     if(thumbTask.isSuccessful) {
                                         var thumbFileURI = thumbTask.result.toString()
 
-                                        Log.d("thumb download URI : ", "is $thumbFileURI")
+                                        Log.d("whatsup thumb download URI : ", "is $thumbFileURI")
 
                                         var updateObj = HashMap<String, Any>()
                                         updateObj.put("image", fileURI.toString())
@@ -152,12 +152,12 @@ class SettingsActivity : AppCompatActivity() {
                                         }
 
                                     } else {
-                                        Log.d("thumb download URI : ", "could not donwload!!")
+                                        Log.d("whatsup thumb download URI : ", "could not donwload!!")
                                     }
                                 }
 
                             } else {
-                                Log.d("download URI : ", "could not donwload!!")
+                                Log.d("whatsup download URI : ", "could not donwload!!")
                             }
                         }
 
